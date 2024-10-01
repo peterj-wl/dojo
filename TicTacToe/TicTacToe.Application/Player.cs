@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace TicTacToe.Application
 {
-    internal class Player
+    public record Player(string Name, char MarkerSymbol)
     {
+        [Required]
+        [AllowedValues("Bot 1", "Bot 2")]
+        public string Name { get; } = Name;
+
+        [Required]
+        [AllowedValues('X', 'O')]
+        public char MarkerSymbol { get; } = MarkerSymbol;
     }
 }
